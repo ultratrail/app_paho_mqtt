@@ -27,6 +27,10 @@ android {
 
 repositories {
     maven { url rootProject.ext.mavenUrl }
+    maven {
+        url "https://repo.eclipse.org/content/repositories/paho/"
+    }
+
 }
 
 
@@ -38,12 +42,17 @@ dependencies {
     compile "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
     compile "org.eclipse.paho:org.eclipse.paho.client.mqttv3:${rootProject.ext.clientVersion}"
     compile (project(':org.eclipse.paho.android.service')){
+
         //exclude module: "org.eclipse.paho.client.mqttv3"
         transitive=true
     }
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+    compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'
+
 }
 
-configurations.compile.exclude module: 'org.eclipse.paho.client.mqttv3'
+//configurations.compile.exclude module: 'org.eclipse.paho.client.mqttv3'
 task debug << {
     configurations.compile.each { println it}
 }
+

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Paho Example</string>
+    <string name="title_activity_home">Home</string>
 
 </resources>

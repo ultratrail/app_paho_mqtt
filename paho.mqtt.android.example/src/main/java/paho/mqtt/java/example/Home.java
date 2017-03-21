@@ -51,6 +51,8 @@ public class Home extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO
+            Intent myIntent = new Intent(Home.this, Groupe_Activity.class);
+            startActivity( myIntent);
         }
     };
 
@@ -58,6 +60,8 @@ public class Home extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO
+            //Intent myIntent = new Intent(Home.this, Map_Activity.class);
+            //startActivity( myIntent);
         }
     };
 

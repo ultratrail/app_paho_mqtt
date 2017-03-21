@@ -30,12 +30,13 @@
             </intent-filter>
         </activity>
         <!-- Mqtt Service -->
-        <service android:name="org.eclipse.paho.android.service.MqttService"></service>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
 
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Groupe_Activity"></activity>
     </application>
 
 </manifest>

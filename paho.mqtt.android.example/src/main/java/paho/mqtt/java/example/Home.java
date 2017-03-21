@@ -42,8 +42,8 @@ public class Home extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO
-            Intent intent = new Intent(Home.this, BluetoothListActivity.class);
-            startActivity(intent);
+            Intent myIntent = new Intent(Home.this, Config_Activity.class);
+            startActivity(myIntent);
         }
     };
 

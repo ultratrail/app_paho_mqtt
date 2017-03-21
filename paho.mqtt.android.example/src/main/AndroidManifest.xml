@@ -49,8 +49,8 @@
 
 
         <activity
-            android:name=".BluetoothListActivity"
-            android:label="@string/title_activity_bluetooth_list"
+            android:name=".Config_Activity"
+            android:label="Config_Activity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

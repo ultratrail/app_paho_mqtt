@@ -45,8 +45,8 @@ public class Home extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO
-            //Intent myIntent = new Intent(Home.this, Config_Activity.class);
-            //startActivity( myIntent);
+            Intent myIntent = new Intent(Home.this, Config_Activity.class);
+            startActivity(myIntent);
         }
     };
 

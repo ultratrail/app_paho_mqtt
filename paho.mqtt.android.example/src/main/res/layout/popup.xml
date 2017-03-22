@@ -19,13 +19,21 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="It's a PopupWindow" />
+                android:text="Add" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="ID du joueur ajouter"
+                android:ems="10"
+                android:id="@+id/id_a_ajouter" />
 
             <Button
-                android:id="@+id/dismiss"
+                android:id="@+id/ok"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Dismiss" />
+                android:text="OK" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

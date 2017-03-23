@@ -9,6 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -17,16 +23,13 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+// client mqtt
+        Mqtt_client mqtt_client= new Mqtt_client(getApplicationContext());
 
-/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
+
+
+//
+
 
         Button Config = (Button) findViewById(R.id.configuration) ;
         Config.setOnClickListener(Listener_config);

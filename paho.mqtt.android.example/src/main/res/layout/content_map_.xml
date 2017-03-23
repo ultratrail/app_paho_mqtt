@@ -13,4 +13,5 @@
     tools:context="paho.mqtt.java.example.Map_Activity"
     tools:showIn="@layout/activity_map_">
 
+
 </RelativeLayout>

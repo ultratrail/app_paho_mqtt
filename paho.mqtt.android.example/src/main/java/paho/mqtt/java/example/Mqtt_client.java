@@ -59,6 +59,10 @@ public class Mqtt_client {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.i("MQTT","Incoming message: " + new String(message.getPayload()));
+                //TODO en faire quelque chose
+                //Recuperer les info dans le message.
+                Message m = new Message(message.toString());
+                Postions.getInstance().modfierPosition(m.getPoint(),m.getId());
                 //addToHistory("Incoming message: " + new String(message.getPayload()));
             }
 
@@ -177,7 +181,10 @@ public class Mqtt_client {
 
         try {
             MqttMessage message = new MqttMessage();
-            message.setPayload(publishMessage.getBytes());
+            Message m = new Message(this.clientId,Postions.getInstance().myPosition);
+
+            message.setPayload(m.toString().getBytes());
+            //message.setPayload(publishMessage.getBytes());
             mqttAndroidClient.publish(publishTopic, message);
             Log.i("MQTT","Message Published");
 

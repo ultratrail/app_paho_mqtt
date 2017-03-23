@@ -68,7 +68,6 @@ public class Groupe_Activity extends AppCompatActivity {
                         menbres.menbres.add(id_a_ajouter); //bizarre a modifier
                         adapter.add(id_a_ajouter);
                         list.setAdapter(adapter);
-                        //mqtt subscribe
 
                         popupWindow.dismiss();
                     }

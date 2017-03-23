@@ -1,6 +1,7 @@
 package paho.mqtt.java.example;
 
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,8 +26,8 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
 // client mqtt
         Mqtt_client mqtt_client= new Mqtt_client(getApplicationContext());
-
-
+        Menbres menbres =Menbres.getInstance();
+        menbres.setMqtt_clients(mqtt_client);
 
 //
 
@@ -63,8 +64,8 @@ public class Home extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO
-            //Intent myIntent = new Intent(Home.this, Map_Activity.class);
-            //startActivity( myIntent);
+            Intent myIntent = new Intent(Home.this, Map_Activity.class);
+            startActivity( myIntent);
         }
     };
 

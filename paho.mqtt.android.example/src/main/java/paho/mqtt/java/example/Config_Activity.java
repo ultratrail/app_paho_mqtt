@@ -53,7 +53,8 @@ public class Config_Activity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //TODO  add a bluetooth device. New activity ?
-
+            BluetoothDeviceAdapter adapter = (BluetoothDeviceAdapter) myListView.getAdapter();
+            adapter.add(new BluetoothDevice("default name"));
         }
     };
 

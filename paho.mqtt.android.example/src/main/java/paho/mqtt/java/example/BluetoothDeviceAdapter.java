@@ -27,6 +27,9 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
+        final BluetoothDevice thisDevice;
+        thisDevice = BluetoothDeviceAdapter.super.getItem(position);
+
         //Android nous fournit un convertView null lorsqu'il nous demande de la créer
         //dans le cas contraire, cela veux dire qu'il nous fournit une vue recyclée
         if(convertView == null){
@@ -41,14 +44,16 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
             viewHolder.name = (TextView) convertView.findViewById(R.id.name);
             viewHolder.deleteButton = (Button) convertView.findViewById(R.id.button);
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
+
+            viewHolder.name.setText(thisDevice.getName());
+
+
             convertView.setTag(viewHolder);
         }
 
         viewHolder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BluetoothDevice thisDevice;
-                thisDevice = BluetoothDeviceAdapter.super.getItem(position);
                 BluetoothDeviceAdapter.super.remove(thisDevice);
             }
         });

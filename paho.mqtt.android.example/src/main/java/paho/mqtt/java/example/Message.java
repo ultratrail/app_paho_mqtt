@@ -2,7 +2,7 @@ package paho.mqtt.java.example;
 
 import android.graphics.Point;
 
-import com.google.android.gms.maps.model.LatLng;
+//import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by romane on 23/03/17.
@@ -10,35 +10,35 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Message {
     private String id;
-    private LatLng coord;
+    private Point coord;
 
     public Message(){};
-    public Message(String id, LatLng coord){
+    public Message(String id, Point coord){
         this.id=id;
         this.coord=coord;
     }
     public Message(String s){
         String[] tab=s.split(":");
         id=tab[0];
-        coord= new LatLng(Float.valueOf(tab[1]),Float.valueOf(tab[2]));
+        coord= new Point(Integer.valueOf(tab[1]),Integer.valueOf(tab[2]));
     }
     public void setId (String id){
         this.id=id;
     }
 
-    public void setPoint(LatLng point){
+    public void setPoint(Point point){
         this.coord=point;
     }
 
     public String getId (){
         return id;
     }
-    public LatLng getPoint(){
+    public Point getPoint(){
         return coord;
     }
 
     public String toString (){
-        return id+":"+coord.latitude+":"+coord.longitude;
+        return id+":"+coord.x+":"+coord.y;
     }
 
 

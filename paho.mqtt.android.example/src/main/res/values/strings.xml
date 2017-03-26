@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Paho Example</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_bluetooth_list">Config_Activity</string>
+    <string name="title_activity_map_">Map_Activity</string>
 
 </resources>

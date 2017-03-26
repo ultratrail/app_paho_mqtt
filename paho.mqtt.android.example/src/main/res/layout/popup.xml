@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="1dp"
+        android:background="@android:color/darker_gray">
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="ID du joueur ajouter"
+                android:ems="10"
+                android:id="@+id/id_a_ajouter" />
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="OK" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

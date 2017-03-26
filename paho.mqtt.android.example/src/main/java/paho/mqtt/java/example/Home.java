@@ -38,14 +38,15 @@ public class Home extends AppCompatActivity {
         Button Groupe = (Button) findViewById(R.id.groupe);
         Groupe.setOnClickListener(Listener_groupe);
 
-        Button Map = (Button) findViewById(R.id.map);
-        Map.setOnClickListener(Listener_map);
+        Button map = (Button) findViewById(R.id.map);
+        map.setOnClickListener(Listener_map);
+
     }
 
     View.OnClickListener Listener_config = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //TODO
+
             Intent myIntent = new Intent(Home.this, Config_Activity.class);
             startActivity(myIntent);
         }
@@ -54,7 +55,7 @@ public class Home extends AppCompatActivity {
     View.OnClickListener Listener_groupe = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //TODO
+
             Intent myIntent = new Intent(Home.this, Groupe_Activity.class);
             startActivity( myIntent);
         }
@@ -63,11 +64,10 @@ public class Home extends AppCompatActivity {
     View.OnClickListener Listener_map = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //TODO
-            Intent myIntent = new Intent(Home.this, Map_Activity.class);
+
+            Intent myIntent = new Intent(Home.this, Map_activity.class);
             startActivity( myIntent);
         }
     };
-
 
 }

@@ -32,7 +32,7 @@ public class Groupe_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groupe_);
 
-        menbres.menbres.add("Antoine");
+        menbres.menbres.add("Client2");
         menbres.menbres.add("Benoit");
         menbres.menbres.add("Cyril");
         menbres.menbres.add("David");

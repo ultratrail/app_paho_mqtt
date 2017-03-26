@@ -2,6 +2,7 @@ package paho.mqtt.java.example;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
@@ -18,14 +19,14 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * Created by romane on 22/03/17.
  */
 
-public class Mqtt_client {
+public class Mqtt_client  {
     MqttAndroidClient mqttAndroidClient;
 
     final String serverUri = "tcp://iot.eclipse.org:1883";
 
     String clientId = "Client1";
     final String subscriptionTopic = "exampleAndroidTopic";
-    final String publishTopic = "ultratrail"+clientId;
+    final String publishTopic = "ultratrail/"+clientId;
     final String publishMessage = "Hello World!";
 
 
@@ -46,6 +47,7 @@ public class Mqtt_client {
                     subscribeToallTopic();
                 } else {
                     Log.i("MQTT","Connected to: " + serverURI);
+
                     //addToHistory("Connected to: " + serverURI);
                 }
             }
@@ -63,6 +65,8 @@ public class Mqtt_client {
                 //Recuperer les info dans le message.
                 Message m = new Message(message.toString());
                 Postions.getInstance().modfierPosition(m.getPoint(),m.getId());
+
+
                 //addToHistory("Incoming message: " + new String(message.getPayload()));
             }
 
@@ -146,6 +150,7 @@ public class Mqtt_client {
                 public void onSuccess(IMqttToken asyncActionToken) {
                     Log.i("MQTT","Subscribed!");
                     //addToHistory("Subscribed!");
+                    publishMessage();
                 }
 
                 @Override
@@ -186,7 +191,7 @@ public class Mqtt_client {
             message.setPayload(m.toString().getBytes());
             //message.setPayload(publishMessage.getBytes());
             mqttAndroidClient.publish(publishTopic, message);
-            Log.i("MQTT","Message Published");
+            Log.i("MQTT","Message Published...  "+publishTopic+" : "+message);
 
             if(!mqttAndroidClient.isConnected()){
                 Log.i("MQTT",mqttAndroidClient.getBufferedMessageCount() + " messages in buffer.");

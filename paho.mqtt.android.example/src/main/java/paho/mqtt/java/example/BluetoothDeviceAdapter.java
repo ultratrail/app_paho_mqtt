@@ -27,8 +27,8 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        final BluetoothDevice thisDevice;
-        thisDevice = BluetoothDeviceAdapter.super.getItem(position);
+
+        ItemViewHolder mainViewholder = null;
 
         //Android nous fournit un convertView null lorsqu'il nous demande de la créer
         //dans le cas contraire, cela veux dire qu'il nous fournit une vue recyclée
@@ -36,24 +36,21 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
             //Nous récupérons notre row_tweet via un LayoutInflater,
             //qui va charger un layout xml dans un objet View
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.connected_device_item,parent, false);
-        }
-
-        ItemViewHolder viewHolder = (ItemViewHolder) convertView.getTag();
-        if(viewHolder == null){
-            viewHolder = new ItemViewHolder();
+            ItemViewHolder viewHolder = new ItemViewHolder();
             viewHolder.name = (TextView) convertView.findViewById(R.id.name);
             viewHolder.deleteButton = (Button) convertView.findViewById(R.id.button);
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
-
-            viewHolder.name.setText(thisDevice.getName());
-
-
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.deleteButton.setOnClickListener(new View.OnClickListener() {
+        mainViewholder = (ItemViewHolder) convertView.getTag();
+
+        mainViewholder.name.setText(getItem(position).getName());
+        mainViewholder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                BluetoothDevice thisDevice;
+                thisDevice = BluetoothDeviceAdapter.super.getItem(position);
                 BluetoothDeviceAdapter.super.remove(thisDevice);
             }
         });

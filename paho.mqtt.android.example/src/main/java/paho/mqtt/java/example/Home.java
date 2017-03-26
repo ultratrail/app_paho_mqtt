@@ -38,6 +38,8 @@ public class Home extends AppCompatActivity {
         Button Groupe = (Button) findViewById(R.id.groupe);
         Groupe.setOnClickListener(Listener_groupe);
 
+        Button map = (Button) findViewById(R.id.map);
+        map.setOnClickListener(Listener_map);
 
     }
 
@@ -59,6 +61,13 @@ public class Home extends AppCompatActivity {
         }
     };
 
+    View.OnClickListener Listener_map = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
 
+            Intent myIntent = new Intent(Home.this, Map_activity.class);
+            startActivity( myIntent);
+        }
+    };
 
 }

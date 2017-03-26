@@ -76,7 +76,7 @@
         <activity
             android:name=".Config_Activity"
             android:label="Config_Activity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Groupe_Activity" />
         <!--
             <meta-data
@@ -84,6 +84,7 @@
             android:value="@integer/google_play_services_version" />
         -->
 
+        <activity android:name=".Map_activity"></activity>
     </application>
 
 </manifest>

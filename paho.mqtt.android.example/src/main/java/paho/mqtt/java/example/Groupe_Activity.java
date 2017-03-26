@@ -22,7 +22,7 @@ public class Groupe_Activity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ListView list;
 
-    Menbres menbres= Menbres.getInstance();
+    Membres membres= Membres.getInstance();
 
 
     // TODO recuperer la liste qui serait sauvegarde
@@ -32,17 +32,10 @@ public class Groupe_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groupe_);
 
-        menbres.menbres.add("Client2");
-        menbres.menbres.add("Benoit");
-        menbres.menbres.add("Cyril");
-        menbres.menbres.add("David");
-        menbres.menbres.add("Eloise");
-        menbres.menbres.add("Florent");
-
 
         list = (ListView) findViewById(R.id.list);
         adapter = new ArrayAdapter<String>(Groupe_Activity.this,
-                android.R.layout.simple_list_item_1, menbres.menbres);
+                android.R.layout.simple_list_item_1, membres.getMembres());
         list.setAdapter(adapter);
 
         button_add_someone = (Button) findViewById(R.id.Add_someone);
@@ -65,8 +58,8 @@ public class Groupe_Activity extends AppCompatActivity {
                         TextView textView = (TextView) popupView.findViewById(R.id.id_a_ajouter);
                         id_a_ajouter =  textView.getText().toString();
                         Log.i("ST",id_a_ajouter);
-                        menbres.menbres.add(id_a_ajouter); //bizarre a modifier
-                        adapter.add(id_a_ajouter);
+                        membres.add(id_a_ajouter); //bizarre a modifier
+ //                       adapter.add(id_a_ajouter); normalement, le membres.add doit suffire car l'adapter se base déjà sur la liste de membres.
                         list.setAdapter(adapter);
 
                         popupWindow.dismiss();

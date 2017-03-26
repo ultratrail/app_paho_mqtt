@@ -176,8 +176,8 @@ public class Mqtt_client  {
     }
 
     public void subscribeToallTopic(){
-        for (int i=0; i<Menbres.getInstance().nb_menbres();i++){
-            subscribeToTopic("ultratrail/"+Menbres.getInstance().menbres.get(i));
+        for (int i=0; i<Membres.getInstance().nb_Membres();i++){
+            subscribeToTopic("ultratrail/"+Membres.getInstance().get(i));
         }
     }
 

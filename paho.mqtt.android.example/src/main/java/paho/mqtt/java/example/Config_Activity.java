@@ -34,6 +34,7 @@ public class Config_Activity extends AppCompatActivity {
         button_add_device.setOnClickListener(add_deviceListener);
 
         myListView = (ListView) findViewById(R.id.list);
+
         printDevices();
 
         /*
@@ -61,18 +62,15 @@ public class Config_Activity extends AppCompatActivity {
 
 
     private void printDevices(){
-        List<BluetoothDevice> devices = generateDevices();
+        BluetoothDevicesSingleton devices = generateDevices();
 
         BluetoothDeviceAdapter adapter = new BluetoothDeviceAdapter(Config_Activity.this, devices);
         myListView.setAdapter(adapter);
 
     }
 
-    private List<BluetoothDevice> generateDevices() {
-        List<BluetoothDevice> devicesList = new ArrayList<BluetoothDevice>();
-        devicesList.add(new BluetoothDevice("Ceinture"));
-        devicesList.add(new BluetoothDevice("montre"));
-        devicesList.add(new BluetoothDevice("chaussure"));
+    private BluetoothDevicesSingleton generateDevices() {
+        BluetoothDevicesSingleton devicesList = BluetoothDevicesSingleton.getInstance();
         return devicesList;
     }
 

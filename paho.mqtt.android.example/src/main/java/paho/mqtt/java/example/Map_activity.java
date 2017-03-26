@@ -12,7 +12,7 @@ public class Map_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        final Menbres m =Menbres.getInstance();
+        final Membres m =Membres.getInstance();
         final Mqtt_client mqtt_client= m.getMqtt_clients();
         final Postions p = Postions.getInstance();
         Button b = (Button) findViewById(R.id.publish);

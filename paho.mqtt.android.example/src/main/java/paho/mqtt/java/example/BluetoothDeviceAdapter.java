@@ -55,7 +55,6 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
             }
         });
 
-//        Button deleteButton = (Button) findViewB
         //nous renvoyons notre vue à l'adapter, afin qu'il l'affiche
         //et qu'il puisse la mettre à recycler lorsqu'elle sera sortie de l'écran
         return convertView;

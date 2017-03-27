@@ -1,6 +1,8 @@
 package paho.mqtt.java.example;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +11,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by alexandre on 23/03/17.
+ * Created by Ferrera on 27/03/2017.
  */
 
-public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
+public class GroupeAdapter extends ArrayAdapter<String> {
 
-
-    public BluetoothDeviceAdapter(Context context, List<BluetoothDevice> devices) {
-        super(context, 0, devices);
+    public GroupeAdapter(@NonNull Context context, @NonNull Membres membres) {
+        super(context, 0, membres.getMembres());
     }
 
     //convertView est notre vue recyclée
@@ -45,13 +45,18 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
 
         mainViewholder = (ItemViewHolder) convertView.getTag();
 
-        mainViewholder.name.setText(getItem(position).getName());
+        mainViewholder.name.setText(getItem(position));
         mainViewholder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BluetoothDevice thisDevice;
-                thisDevice = BluetoothDeviceAdapter.super.getItem(position);
-                BluetoothDeviceAdapter.super.remove(thisDevice);
+                String thisMember;
+//                Mqtt_client thisClient;
+
+//                Membres.getInstance().getMqtt_clients().unsubscribe();
+
+                thisMember = GroupeAdapter.super.getItem(position);
+                Membres.getInstance().unsubscribeTo(thisMember);
+                GroupeAdapter.super.remove(thisMember); //1, 2... 1, 2 this is a test
             }
         });
 
@@ -65,5 +70,6 @@ public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDevice> {
         public Button deleteButton;
         public ImageView imageView;
     }
+
 
 }

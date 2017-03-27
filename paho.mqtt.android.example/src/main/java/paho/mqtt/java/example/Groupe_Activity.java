@@ -19,8 +19,9 @@ import java.util.ArrayList;
 public class Groupe_Activity extends AppCompatActivity {
     Button button_add_someone;
     String id_a_ajouter;
-    ArrayAdapter<String> adapter;
+    GroupeAdapter adapter;
     ListView list;
+
 
     Membres membres= Membres.getInstance();
 
@@ -34,9 +35,12 @@ public class Groupe_Activity extends AppCompatActivity {
 
 
         list = (ListView) findViewById(R.id.list);
-        adapter = new ArrayAdapter<String>(Groupe_Activity.this,
-                android.R.layout.simple_list_item_1, membres.getMembres());
+/*        adapter = new ArrayAdapter<String>(Groupe_Activity.this,
+                R.layout.list_item, membres.getMembres());
         list.setAdapter(adapter);
+*/
+
+        printMembres();
 
         button_add_someone = (Button) findViewById(R.id.Add_someone);
         button_add_someone.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +75,10 @@ public class Groupe_Activity extends AppCompatActivity {
                 TextView textView = (TextView)findViewById(R.id.name);
                 id_a_ajouter=textView.getText().toString();
                 Log.i("ST",id_a_ajouter);
-                membres.add(id_a_ajouter);
+//                membres.add(id_a_ajouter);
+                membres.subscribeTo(id_a_ajouter);
                 adapter.add(id_a_ajouter);
-                list.setAdapter(adapter);
+//                list.setAdapter(adapter);  adapter déjà set dans onCreate (dans printMembres())
                 textView.setText("entrez un nom");
 
             }
@@ -81,6 +86,14 @@ public class Groupe_Activity extends AppCompatActivity {
 
 
     }
+    private void printMembres(){
+//        Membres membres = generateMembres();
+
+        adapter = new GroupeAdapter(Groupe_Activity.this, membres);
+        list.setAdapter(adapter);
+
+    }
+
 }
 
 

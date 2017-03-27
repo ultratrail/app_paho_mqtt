@@ -47,6 +47,17 @@ public class Membres {
         mqtt_clients.subscribeToTopic(a_ajouter);
     }
 
+
+
+    public void subscribeTo (String memberName){
+        mqtt_clients.subscribeToTopic(memberName);
+    }
+
+
+    public void unsubscribeTo(String memberName) {
+        mqtt_clients.unsubscribe(memberName);
+    }
+
     public ArrayList<String> getMembres() {
         return membres;
     }

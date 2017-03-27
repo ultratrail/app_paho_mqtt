@@ -117,13 +117,13 @@ public class Mqtt_client  {
             mqttAndroidClient.subscribe(subscriptionTopic, 0, null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Log.i("MQTT","Subscribed!");
+                    Log.i("MQTT","Subscribed!  "+subscriptionTopic);
                     //addToHistory("Subscribed!");
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Log.i("MQTT","Failed to subscribe");
+                    Log.i("MQTT","Failed to subscribe to "+subscriptionTopic);
                     //addToHistory("Failed to subscribe");
                 }
             });
@@ -133,6 +133,7 @@ public class Mqtt_client  {
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
                     // message Arrived!
+                    Log.i("MQTT", "Message incomming2 dans subscribe sans topic special");
                     System.out.println("Message: " + topic + " : " + new String(message.getPayload()));
                 }
             });
@@ -143,19 +144,20 @@ public class Mqtt_client  {
         }
     }
 
-    public void subscribeToTopic( String topic){
+    public void subscribeToTopic(final String topic){
         try {
+            Log.i("MQTT","tentative de soubscription "+ topic);
             mqttAndroidClient.subscribe(topic, 0, null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Log.i("MQTT","Subscribed!");
+                    Log.i("MQTT","Subscribed!"+ topic);
                     //addToHistory("Subscribed!");
                     publishMessage();
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Log.i("MQTT","Failed to subscribe");
+                    Log.i("MQTT","Failed to subscribe"+topic);
                     //addToHistory("Failed to subscribe");
                 }
             });
@@ -165,6 +167,7 @@ public class Mqtt_client  {
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
                     // message Arrived!
+                    Log.i("MQTT", "Message incomming2 dans subscribe avec topic : "+ topic);
                     System.out.println("Message: " + topic + " : " + new String(message.getPayload()));
                 }
             });
@@ -176,6 +179,7 @@ public class Mqtt_client  {
     }
 
     public void subscribeToallTopic(){
+        Log.i("MQTT", "je souscrit a tous les topics");
         for (int i=0; i<Membres.getInstance().nb_Membres();i++){
             subscribeToTopic("ultratrail/"+Membres.getInstance().get(i));
         }

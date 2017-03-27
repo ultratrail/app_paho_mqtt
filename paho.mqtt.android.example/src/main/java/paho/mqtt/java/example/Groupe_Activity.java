@@ -42,7 +42,7 @@ public class Groupe_Activity extends AppCompatActivity {
         button_add_someone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                /*LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 final View popupView = layoutInflater.inflate(R.layout.popup, null);
                 final PopupWindow popupWindow = new PopupWindow(
                         popupView,
@@ -67,7 +67,14 @@ public class Groupe_Activity extends AppCompatActivity {
                 });
 
                 popupWindow.showAsDropDown(button_add_someone, 50, -30);
-
+                */
+                TextView textView = (TextView)findViewById(R.id.name);
+                id_a_ajouter=textView.getText().toString();
+                Log.i("ST",id_a_ajouter);
+                membres.add(id_a_ajouter);
+                adapter.add(id_a_ajouter);
+                list.setAdapter(adapter);
+                textView.setText("entrez un nom");
 
             }
         });

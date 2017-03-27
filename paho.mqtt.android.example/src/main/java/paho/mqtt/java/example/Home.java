@@ -27,8 +27,7 @@ public class Home extends AppCompatActivity {
 // client mqtt
         Mqtt_client mqtt_client= new Mqtt_client(getApplicationContext());
         Membres membres =Membres.getInstance();
-        membres.setMqtt_clients(mqtt_client);
-
+        membres.setMqtt_client(mqtt_client);
 //
 
 

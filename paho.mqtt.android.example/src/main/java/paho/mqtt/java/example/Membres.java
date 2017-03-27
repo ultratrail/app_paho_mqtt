@@ -1,54 +1,64 @@
 package paho.mqtt.java.example;
 
+import android.support.v7.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 /**
  * Created by romane on 22/03/17.
  */
-public class Membres {
-    private ArrayList<String> membres;
+public class Membres extends ArrayList<String>{
+//    private ArrayList<String> membres;
 
     //a changer
-    private Mqtt_client mqtt_clients;
+    private Mqtt_client mqtt_client;
 
-    private static Membres ourInstance = new Membres(new ArrayList<String>());
+    private static Membres ourInstance = new Membres();
 
     public static Membres getInstance() {
         return ourInstance;
     }
 
-    private Membres(ArrayList<String> arrayList) {
-        this.membres=arrayList;
-
-        membres.add("Client1");
-        membres.add("Benoit");
-        membres.add("Cyril");
-        membres.add("David");
-        membres.add("Eloise");
-        membres.add("Florent");
-
+    private Membres() {
+//        this.membres=arrayList
+        super.add("Client1");
+        super.add("Benoit");
+        super.add("Cyril");
+        super.add("David");
+        super.add("Eloise");
+        super.add("Florent");
     }
 
-    public int nb_Membres (){
+
+/*    public int nb_Membres (){
         return membres.size();
     }
+*/
 
-    public void setMqtt_clients(Mqtt_client mqtt_client){
-        this.mqtt_clients=mqtt_client;
+    public void setMqtt_client(Mqtt_client mqtt_client){
+        this.mqtt_client=mqtt_client;
     }
 
     //peut etre a enlever
-    public Mqtt_client getMqtt_clients(){
-        return mqtt_clients;
+    public Mqtt_client getMqtt_client(){
+        return mqtt_client;
     }
 
-    public void add(String a_ajouter){
-        this.membres.add(a_ajouter);
-        mqtt_clients.subscribeToTopic(a_ajouter);
+    @Override
+    public boolean add(String a_ajouter){
+//        this.membres.add(a_ajouter);
+        mqtt_client.subscribeToTopic(a_ajouter);
+        return super.add(a_ajouter);
+    }
+
+    @Override
+    public boolean remove(Object memberName) {
+        mqtt_client.unsubscribe((String) memberName);
+        return super.remove(memberName);
     }
 
 
-
+/*
     public void subscribeTo (String memberName){
         mqtt_clients.subscribeToTopic(memberName);
     }
@@ -65,5 +75,5 @@ public class Membres {
     public String get(int position) {
         return membres.get(position);
     }
-
+*/
 }

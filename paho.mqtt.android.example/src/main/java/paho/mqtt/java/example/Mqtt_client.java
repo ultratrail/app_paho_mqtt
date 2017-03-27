@@ -180,7 +180,7 @@ public class Mqtt_client  {
 
     public void subscribeToallTopic(){
         Log.i("MQTT", "je souscrit a tous les topics");
-        for (int i=0; i<Membres.getInstance().nb_Membres();i++){
+        for (int i=0; i<Membres.getInstance().size();i++){
             subscribeToTopic("ultratrail/"+Membres.getInstance().get(i));
         }
     }

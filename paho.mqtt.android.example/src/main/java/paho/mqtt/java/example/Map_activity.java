@@ -13,7 +13,7 @@ public class Map_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         final Membres m =Membres.getInstance();
-        final Mqtt_client mqtt_client= m.getMqtt_clients();
+        final Mqtt_client mqtt_client= m.getMqtt_client();
         final Postions p = Postions.getInstance();
         Button b = (Button) findViewById(R.id.publish);
         TextView t = (TextView) findViewById((R.id.textView2));

@@ -76,7 +76,7 @@ public class Groupe_Activity extends AppCompatActivity {
                 id_a_ajouter=textView.getText().toString();
                 Log.i("ST",id_a_ajouter);
 //                membres.add(id_a_ajouter);
-                membres.subscribeTo(id_a_ajouter);
+//                membres.subscribeTo(id_a_ajouter);
                 adapter.add(id_a_ajouter);
 //                list.setAdapter(adapter);  adapter déjà set dans onCreate (dans printMembres())
                 textView.setText("entrez un nom");

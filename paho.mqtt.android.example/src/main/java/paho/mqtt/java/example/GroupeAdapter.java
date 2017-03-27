@@ -20,7 +20,7 @@ import java.util.List;
 public class GroupeAdapter extends ArrayAdapter<String> {
 
     public GroupeAdapter(@NonNull Context context, @NonNull Membres membres) {
-        super(context, 0, membres.getMembres());
+        super(context, 0, membres);
     }
 
     //convertView est notre vue recyclée
@@ -55,7 +55,7 @@ public class GroupeAdapter extends ArrayAdapter<String> {
 //                Membres.getInstance().getMqtt_clients().unsubscribe();
 
                 thisMember = GroupeAdapter.super.getItem(position);
-                Membres.getInstance().unsubscribeTo(thisMember);
+//                Membres.getInstance().unsubscribeTo(thisMember);
                 GroupeAdapter.super.remove(thisMember); //1, 2... 1, 2 this is a test
             }
         });

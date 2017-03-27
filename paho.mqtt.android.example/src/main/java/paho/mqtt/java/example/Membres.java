@@ -20,7 +20,7 @@ public class Membres {
     private Membres(ArrayList<String> arrayList) {
         this.membres=arrayList;
 
-        membres.add("Client2");
+        membres.add("Client1");
         membres.add("Benoit");
         membres.add("Cyril");
         membres.add("David");

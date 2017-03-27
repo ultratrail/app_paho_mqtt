@@ -24,7 +24,7 @@ public class Mqtt_client  {
 
     final String serverUri = "tcp://iot.eclipse.org:1883";
 
-    String clientId = "Client1";
+    String clientId = "Client2";
     final String subscriptionTopic = "exampleAndroidTopic";
     final String publishTopic = "ultratrail/"+clientId;
     final String publishMessage = "Hello World!";
@@ -32,7 +32,7 @@ public class Mqtt_client  {
 
 
     public Mqtt_client(Context applicationContext){
-        clientId = clientId + System.currentTimeMillis();
+ //       clientId = clientId + System.currentTimeMillis();
 
         mqttAndroidClient = new MqttAndroidClient(applicationContext, serverUri, clientId);
         mqttAndroidClient.setCallback(new MqttCallbackExtended() {
